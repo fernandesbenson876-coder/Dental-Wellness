@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Dental Wellness | Multi-Speciality Clinic</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <title>Dental Wellness | Advanced Multi-Speciality Clinic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -14,436 +14,484 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f9fafc;
-            color: #1f2a44;
-            line-height: 1.5;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #f0f7ff;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background: #0a0f1e;
+            color: #e0e7ff;
+        }
+
+        body.dark-mode .info-card,
+        body.dark-mode .review-card,
+        body.dark-mode .gallery-item,
+        body.dark-mode .contact-card {
+            background: #131c2e;
+            color: #e0e7ff;
+            border-color: #2a3a5a;
+        }
+
+        body.dark-mode footer {
+            background: #050a15;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 32px;
         }
 
-        /* header */
-        .hero {
-            background: linear-gradient(135deg, #0b2b5c 0%, #1b4a8b 100%);
+        /* Floating Action Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .float-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
             color: white;
-            padding: 60px 0 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp { background: #25D366; }
+        .call { background: #0077b6; }
+        .dark-toggle {
+            background: #1f2a44;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Hero Modern */
+        .hero {
+            background: linear-gradient(135deg, #0f2b4d 0%, #1b4f8b 50%, #2c7da0 100%);
+            color: white;
+            padding: 80px 0 70px;
             text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: shimmer 20s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translate(0,0); }
+            100% { transform: translate(40px,40px); }
         }
 
         .hero h1 {
-            font-size: 2.6rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 10px;
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+            animation: fadeInUp 0.8s ease;
         }
 
-        .hero .tagline {
+        .greeting {
             font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
-        .badge {
-            background: rgba(255,255,255,0.15);
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-size: 0.85rem;
+            opacity: 0.95;
+            margin: 15px 0;
             font-weight: 500;
-            backdrop-filter: blur(4px);
         }
 
-        /* sections */
+        .badge-lgbt {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(12px);
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 60px;
+            font-weight: 600;
+        }
+
+        /* sections with fade-in */
         section {
-            padding: 60px 0;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 70px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section-title {
-            font-size: 1.9rem;
-            font-weight: 700;
-            margin-bottom: 32px;
-            position: relative;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 45px;
+            background: linear-gradient(135deg, #1e4a76, #2c7da0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
             display: inline-block;
         }
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 0;
-            width: 60%;
-            height: 4px;
-            background: #2c7da0;
-            border-radius: 4px;
+
+        body.dark-mode .section-title {
+            background: linear-gradient(135deg, #7ab3c8, #4a9fba);
+            background-clip: text;
         }
 
-        /* info grid */
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 20px;
         }
 
-        .info-card {
-            background: white;
-            padding: 24px;
-            border-radius: 28px;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
-            transition: transform 0.2s ease;
+        .info-card, .review-card, .contact-card {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 32px;
+            padding: 28px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
         }
+
         .info-card:hover {
-            transform: translateY(-5px);
-        }
-        .info-card i {
-            font-size: 2rem;
-            color: #2c7da0;
-            margin-bottom: 16px;
-        }
-        .info-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-        .hours-list {
-            list-style: none;
-            margin-top: 12px;
-        }
-        .hours-list li {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px dashed #e2edf2;
-        }
-        .today-highlight {
-            background-color: #eef2ff;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-            color: #1e4a76;
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.12);
         }
 
-        /* photo gallery */
+        .counter-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #2c7da0;
+        }
+
+        /* Gallery Grid */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 24px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
         }
+
         .gallery-item {
-            background: #fff;
             border-radius: 28px;
             overflow: hidden;
-            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            cursor: pointer;
+            transition: 0.3s;
         }
+
         .gallery-item img {
             width: 100%;
-            height: 220px;
+            height: 240px;
             object-fit: cover;
-            display: block;
-            transition: transform 0.4s;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.03);
-        }
-        .gallery-caption {
-            padding: 14px 16px;
-            font-weight: 500;
-            color: #1f2a44;
-            background: white;
+            transition: 0.5s;
         }
 
-        /* reviews */
-        .reviews-container {
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Review Slider */
+        .review-slider {
             display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            margin: 20px 0 30px;
+            overflow-x: auto;
+            gap: 30px;
+            scroll-behavior: smooth;
+            padding: 15px 5px;
         }
+
+        .review-slider::-webkit-scrollbar {
+            height: 6px;
+        }
+
         .review-card {
-            background: white;
-            flex: 1 1 280px;
-            padding: 22px;
-            border-radius: 28px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            border: 1px solid #eef2ff;
+            min-width: 300px;
+            flex-shrink: 0;
         }
+
         .stars {
             color: #f4b942;
-            letter-spacing: 2px;
             margin-bottom: 12px;
         }
-        .review-text {
-            font-style: normal;
-            margin: 15px 0;
-            color: #2d3a5e;
-        }
-        .reviewer {
-            font-weight: 700;
-            margin-top: 10px;
-            color: #0b2b5c;
-        }
 
-        /* contact & map */
         .contact-map {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
         }
-        .contact-details p {
-            margin: 18px 0;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            font-size: 1.05rem;
-        }
-        .contact-details i {
-            width: 28px;
-            color: #2c7da0;
-            font-size: 1.3rem;
-        }
-        .map-frame {
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-            height: 300px;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-        .btn-gh {
-            background: #1f2a44;
-            color: white;
-            border: none;
-            padding: 12px 32px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.2s;
-            display: inline-block;
-            margin-top: 24px;
-            text-decoration: none;
-        }
-        .btn-gh:hover {
-            background: #2c3e66;
-            transform: scale(1.02);
-        }
-        footer {
-            background: #0e1c2c;
-            color: #adc5e5;
-            text-align: center;
-            padding: 24px 0;
-            font-size: 0.85rem;
-        }
+
         @media (max-width: 780px) {
-            .contact-map {
-                grid-template-columns: 1fr;
+            .contact-map { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+            .container { padding: 0 20px; }
+        }
+
+        footer {
+            background: #0b1a2e;
+            color: #b0c4e7;
+            text-align: center;
+            padding: 30px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .section-title {
-                font-size: 1.6rem;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
 </head>
 <body>
 
+<div class="floating-buttons">
+    <a href="https://wa.me/919999999999?text=Hi%20Dental%20Wellness%2C%20I%20want%20to%20book%20an%20appointment" class="float-btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="tel:+919999999999" class="float-btn call"><i class="fas fa-phone-alt"></i></a>
+    <button class="float-btn dark-toggle" id="darkModeToggle"><i class="fas fa-moon"></i></button>
+</div>
+
 <header class="hero">
     <div class="container">
-        <h1>DENTAL WELLNESS</h1>
-        <p class="tagline">The Multi-Speciality Clinic</p>
-        <div class="badge"><i class="fas fa-lgbtq-flag"></i> LGBTQ+ friendly space &nbsp;|&nbsp; <i class="fas fa-tooth"></i> Advanced dental care</div>
-        <div style="margin-top: 20px;">
-            <span class="badge"><i class="fas fa-clock"></i> Opening today until 21:00</span>
+        <div class="greeting" id="greetingMsg">✨ Welcome to Excellence ✨</div>
+        <h1>DENTAL WELLNESS<br><span style="font-size: 1.5rem;">The Multi-Speciality Clinic</span></h1>
+        <div class="badge-lgbt" style="margin-top: 25px;"><i class="fas fa-heart" style="color:#ffb3ba;"></i> LGBTQ+ Friendly & Safe Space <i class="fas fa-tooth"></i></div>
+        <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <div class="badge-lgbt"><i class="fas fa-clock"></i> Mon-Sat: 10 AM - 9 PM</div>
+            <div class="badge-lgbt"><i class="fas fa-star"></i> 4.9 ⭐ (300+ reviews)</div>
         </div>
     </div>
 </header>
 
 <div class="container">
-    <!-- Business info / hours -->
+    <!-- Stats Counter section -->
     <section>
-        <h2 class="section-title">Clinic Information</h2>
+        <div class="info-grid">
+            <div class="info-card" style="text-align: center;">
+                <i class="fas fa-smile" style="font-size: 3rem; color:#2c7da0;"></i>
+                <h3>Happy Patients</h3>
+                <div class="counter-number" id="patientCounter">0</div>
+                <p>+ trust our expertise</p>
+            </div>
+            <div class="info-card" style="text-align: center;">
+                <i class="fas fa-calendar-check" style="font-size: 3rem;"></i>
+                <h3>Years of Excellence</h3>
+                <div class="counter-number" id="yearsCounter">0</div>
+                <p>Multi-speciality care</p>
+            </div>
+            <div class="info-card" style="text-align: center;">
+                <i class="fas fa-microscope" style="font-size: 3rem;"></i>
+                <h3>Modern Tech</h3>
+                <div class="counter-number" id="techCounter">0</div>
+                <p>advanced procedures</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opening hours + contact card -->
+    <section>
+        <h2 class="section-title">📋 Clinic at a Glance</h2>
         <div class="info-grid">
             <div class="info-card">
-                <i class="fas fa-calendar-alt"></i>
+                <i class="fas fa-door-open"></i>
                 <h3>Opening Hours</h3>
-                <ul class="hours-list">
-                    <li><span>Monday</span> <span>10:00 – 21:00</span></li>
-                    <li><span>Tuesday</span> <span>10:00 – 21:00</span></li>
-                    <li><span>Wednesday</span> <span>10:00 – 21:00</span></li>
-                    <li><span>Thursday</span> <span>10:00 – 21:00</span></li>
-                    <li><span>Friday</span> <span>10:00 – 21:00</span></li>
-                    <li><span>Saturday</span> <span>10:00 – 21:00</span></li>
-                    <li><span>Sunday</span> <span>Closed</span></li>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li style="display: flex; justify-content: space-between; padding: 8px 0;">Mon - Sat <span>10:00 – 21:00</span></li>
+                    <li style="display: flex; justify-content: space-between; padding: 8px 0;">Sunday <span style="color:#c7254e;">Closed</span></li>
                 </ul>
-                <p style="margin-top: 12px;"><i class="fas fa-check-circle" style="color:#2c7da0;"></i> <strong>Currently:</strong> <span id="open-status">Open now until 9 PM</span></p>
+                <p id="liveStatus" style="margin-top: 15px; font-weight: bold;"></p>
             </div>
             <div class="info-card">
                 <i class="fas fa-map-marker-alt"></i>
                 <h3>Location</h3>
-                <p>DENTAL WELLNESS The Multi-Speciality Clinic<br> 
-                (Exact address from Google Maps — Greater Noida / NCR region)<br>
-                <strong>📍 Get direction via map below</strong></p>
-                <i class="fas fa-wheelchair"></i> Wheelchair accessible entrance available
+                <p>Greater Noida West / Noida Extension<br> <strong>📍 Landmark: Near City Center</strong></p>
+                <p><i class="fas fa-wheelchair"></i> Wheelchair accessible</p>
+                <button id="copyAddressBtn" style="margin-top: 12px; background: #2c7da0; border: none; color: white; padding: 8px 18px; border-radius: 50px; cursor: pointer;">📋 Copy Address</button>
             </div>
             <div class="info-card">
-                <i class="fas fa-phone-alt"></i>
-                <h3>Contact & Booking</h3>
-                <p><i class="fas fa-phone"></i> +91-XXXXXXXXXX <span style="font-size:13px;">(demo placeholder)</span><br>
-                <i class="fab fa-whatsapp"></i> WhatsApp available for appointment<br>
-                <i class="far fa-envelope"></i> care@dentalwellness.in</p>
-                <button class="btn-gh" id="call-btn" style="background:#2c7da0; margin-top:12px; padding:8px 20px;"><i class="fas fa-phone-alt"></i> Request call back</button>
+                <i class="fas fa-concierge-bell"></i>
+                <h3>Emergency Contact</h3>
+                <p><i class="fas fa-phone-alt"></i> +91-98765 43210<br><i class="fas fa-envelope"></i> dentalwellness@care.in</p>
+                <p><i class="fas fa-credit-card"></i> Insurance & digital payments accepted</p>
             </div>
         </div>
     </section>
 
-    <!-- PHOTO GALLERY Inspired by clinic space (placeholders but professional look) -->
+    <!-- Gallery Lightbox ready -->
     <section>
-        <h2 class="section-title">Our Clinic & Facilities</h2>
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="https://placehold.co/600x400/F0F8FF/2c7da0?text=Modern+Dental+Chair" alt="Dental treatment room">
-                <div class="gallery-caption">🦷 Advanced treatment room</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://placehold.co/600x400/FFFFFF/2c7da0?text=Reception+Area" alt="Clinic reception">
-                <div class="gallery-caption">🏥 Welcoming reception</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://placehold.co/600x400/E6F7FF/2c7da0?text=Sterilization+Zone" alt="sterilization area">
-                <div class="gallery-caption">🧼 Highest hygiene standards</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://placehold.co/600x400/FFF5E6/2c7da0?text=Consultation+Room" alt="consultation">
-                <div class="gallery-caption">👩‍⚕️ Multi-speciality consultations</div>
-            </div>
+        <h2 class="section-title">📸 Inside Our Clinic</h2>
+        <div class="gallery" id="gallery">
+            <div class="gallery-item"><img src="https://placehold.co/600x400/D4EAF7/1e4a76?text=Premium+Dental+Chair" alt="Clinic Image 1"><div class="gallery-caption" style="padding: 12px;">🦷 Advanced Operatory</div></div>
+            <div class="gallery-item"><img src="https://placehold.co/600x400/FEF9E6/2c7da0?text=Sterile+Environment" alt="Gallery 2"><div class="gallery-caption">🧪 Sterilization Zone</div></div>
+            <div class="gallery-item"><img src="https://placehold.co/600x400/E8F4F8/1e4a76?text=Consultation+Room" alt="Gallery 3"><div class="gallery-caption">👩‍⚕️ Friendly Consultations</div></div>
+            <div class="gallery-item"><img src="https://placehold.co/600x400/F5F0E6/2c7da0?text=Reception+Waiting+Area" alt="Gallery 4"><div class="gallery-caption">🏆 Welcoming Lounge</div></div>
         </div>
-        <p style="margin-top: 16px; font-style:italic; text-align:center;">* State-of-the-art equipment & patient-centric design</p>
     </section>
 
-    <!-- GOOGLE REVIEWS (based on typical multi-speciality clinic positive feedback, respecting the business) -->
+    <!-- Reviews carousel style -->
     <section>
-        <h2 class="section-title">What Our Patients Say</h2>
-        <div class="reviews-container">
+        <h2 class="section-title">⭐ Patient Love & Reviews</h2>
+        <div class="review-slider" id="reviewSlider">
             <div class="review-card">
-                <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">“Absolutely the best dental experience! The multi-speciality approach saved me from visiting multiple clinics. Very clean and LGBTQ+ friendly environment.”</p>
-                <p class="reviewer">— Aman S.</p>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"Best clinic in town! Got my root canal and it was absolutely painless. They respect LGBTQ+ community openly."</p>
+                <p class="reviewer" style="margin-top: 12px;"><strong>- Rohan S.</strong></p>
             </div>
             <div class="review-card">
-                <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                </div>
-                <p class="review-text">“The doctors are super skilled and explain everything. I had a root canal and it was painless! Also, the timings are very flexible till 9 PM.”</p>
-                <p class="reviewer">— Priya M.</p>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"Finally a multi-speciality dental clinic where everything is under one roof. Highly professional team."</p>
+                <p><strong>- Meera K.</strong></p>
             </div>
             <div class="review-card">
-                <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">“One of the few clinics that truly cares about patient comfort. Great if you need orthodontic, dental implant, and general care under one roof.”</p>
-                <p class="reviewer">— Rajat K.</p>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                <p>"Flexible timings till 9pm, super clean and modern setup. The staff is very warm."</p>
+                <p><strong>- Anuj P.</strong></p>
             </div>
             <div class="review-card">
-                <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">“Highly recommend! Google Maps led me here, and the front desk staff was welcoming. They accept card payments and the clinic is modern.”</p>
-                <p class="reviewer">— Sneha V.</p>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"I was scared of dentists, but Dental Wellness changed my perception. Painless & caring."</p>
+                <p><strong>- Sneha M.</strong></p>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT + LOCATION (embedded map from Google Maps) -->
+    <!-- Map + Contact -->
     <section>
-        <h2 class="section-title">Visit Us</h2>
+        <h2 class="section-title">📍 Reach Us Easily</h2>
         <div class="contact-map">
-            <div class="contact-details">
-                <p><i class="fas fa-map-pin"></i> <strong>DENTAL WELLNESS – The Multi-Speciality Clinic</strong><br> 
-                Near City Center, Greater Noida West / Noida Extension (exact location from Google Maps)</p>
-                <p><i class="fas fa-clock"></i> Opening: Mon–Sat 10:00 AM – 9:00 PM | Sunday closed</p>
-                <p><i class="fas fa-phone"></i> +91 98123 45678 (Clinic front desk)</p>
-                <p><i class="fas fa-envelope"></i> appointment@dentalwellness.com</p>
-                <p><i class="fas fa-wheelchair"></i> Wheelchair-accessible entrance & washroom</p>
-                <div class="badge" style="background:#eef2ff; color:#1f2a44;"><i class="fas fa-lgbtq-flag"></i> Inclusive & safe space for everyone</div>
-                <button class="btn-gh" id="copy-address-btn"><i class="far fa-copy"></i> Copy address to clipboard</button>
+            <div class="contact-card">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Get Direction</h3>
+                <p>📍 DENTAL WELLNESS, The Multi-Speciality Clinic, Greater Noida</p>
+                <iframe src="https://maps.google.com/maps?q=28.5355,77.3910&z=15&output=embed" width="100%" height="250" style="border-radius: 24px; border:0;" allowfullscreen></iframe>
             </div>
-            <div class="map-frame">
-                <!-- This uses the exact location from the client's Google Maps link (embed) -->
-                <iframe src="https://maps.google.com/maps?q=DENTAL+WELLNESS+The+Multi-Speciality+Clinic&output=embed" 
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="contact-card">
+                <i class="fas fa-headset"></i>
+                <h3>Book An Appointment</h3>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fab fa-whatsapp"></i> +91 99999 88888 (WhatsApp)</p>
+                <button id="bookDemoBtn" style="background: linear-gradient(135deg,#1e4a76,#2c7da0); color: white; border: none; padding: 12px 28px; border-radius: 40px; margin-top: 20px; width: 100%; font-weight: bold; cursor: pointer;">📅 Request Callback Now</button>
             </div>
         </div>
     </section>
 </div>
 
 <footer>
-    <div class="container">
-        <p>© 2025 DENTAL WELLNESS - Multi-Speciality Clinic | Compassionate care, advanced dentistry. Demo website for client presentation — official site coming soon.</p>
-        <p style="margin-top: 8px;"><i class="fas fa-tooth"></i> Your smile, our priority</p>
-    </div>
+    <p>© 2025 DENTAL WELLNESS — Multi-Speciality Clinic | Trusted Dental Care | Demo Website for Impatient Clients</p>
+    <p style="margin-top: 10px;"><i class="fas fa-lgbtq-flag"></i> Everyone is welcome here</p>
 </footer>
 
 <script>
-    // dynamic open status based on current day and time (client side)
+    // Intersection Observer for scroll animations
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+
+    // Dynamic greeting
+    const hour = new Date().getHours();
+    const greetingMsg = document.getElementById('greetingMsg');
+    if (hour < 12) greetingMsg.innerHTML = "🌅 Good Morning! Your smile matters to us.";
+    else if (hour < 17) greetingMsg.innerHTML = "☀️ Good Afternoon! Advanced dentistry awaits.";
+    else greetingMsg.innerHTML = "🌙 Good Evening! We're open until 9 PM.";
+
+    // Live status open/close
     function updateOpenStatus() {
         const now = new Date();
-        const day = now.getDay(); // 0 = Sunday, 1 = Monday...
-        const hour = now.getHours();
-        let isOpen = false;
-        let message = "";
-
-        if (day === 0) { // Sunday closed
-            isOpen = false;
-            message = "Closed on Sunday";
-        } else {
-            // Mon - Sat: 10:00 to 21:00
-            if (hour >= 10 && hour < 21) {
-                isOpen = true;
-                message = "✅ Open now until 9:00 PM";
-            } else if (hour < 10) {
-                isOpen = false;
-                message = "⏳ Opens today at 10:00 AM";
-            } else {
-                isOpen = false;
-                message = "🔒 Closed now. Opens tomorrow at 10:00 AM";
-            }
-        }
-        const statusSpan = document.getElementById("open-status");
-        if (statusSpan) {
-            statusSpan.innerHTML = message;
-            if (isOpen) statusSpan.style.color = "#2b7a4b";
-            else statusSpan.style.color = "#b91c1c";
-        }
+        const day = now.getDay();
+        const hours = now.getHours();
+        let statusText = "";
+        if (day === 0) statusText = "🔴 Closed on Sunday. Opens Monday 10 AM.";
+        else if (hours >= 10 && hours < 21) statusText = "🟢 OPEN NOW! Visit us before 9 PM.";
+        else if (hours < 10) statusText = "🟡 Opens today at 10 AM. Book a slot!";
+        else statusText = "⚫ Currently closed. Opens tomorrow 10 AM.";
+        document.getElementById('liveStatus').innerHTML = statusText;
     }
     updateOpenStatus();
 
-    // Phone call back demo (alert)
-    document.getElementById("call-btn")?.addEventListener("click", () => {
-        alert("📞 Demo request: Our team will call you back within working hours. (Demo version — real contact info available at clinic)");
+    // Counter animation
+    function animateCounter(id, target, duration = 2000) {
+        let start = 0;
+        const element = document.getElementById(id);
+        const increment = target / (duration / 16);
+        const interval = setInterval(() => {
+            start += increment;
+            if (start >= target) {
+                element.innerText = target;
+                clearInterval(interval);
+            } else {
+                element.innerText = Math.floor(start);
+            }
+        }, 16);
+    }
+    animateCounter('patientCounter', 2540);
+    animateCounter('yearsCounter', 12);
+    animateCounter('techCounter', 28);
+
+    // Copy address
+    document.getElementById('copyAddressBtn').addEventListener('click', () => {
+        navigator.clipboard.writeText("DENTAL WELLNESS Multi-Speciality Clinic, Greater Noida West, Near City Center");
+        alert("✅ Clinic address copied! Ready to share.");
     });
 
-    // Copy address functionality
-    document.getElementById("copy-address-btn")?.addEventListener("click", () => {
-        const addressText = "DENTAL WELLNESS The Multi-Speciality Clinic, Greater Noida / NCR (Near City Center)";
-        navigator.clipboard.writeText(addressText).then(() => {
-            alert("📍 Clinic address copied to clipboard!");
-        }).catch(() => {
-            alert("Could not copy, but address: " + addressText);
-        });
+    document.getElementById('bookDemoBtn').addEventListener('click', () => {
+        alert("📞 Thanks for reaching out! The clinic team will call you within 30 minutes during working hours. (Demo: This shows extreme responsiveness)");
     });
+
+    // Dark mode toggle with icon change
+    const toggleBtn = document.getElementById('darkModeToggle');
+    toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const icon = toggleBtn.querySelector('i');
+        if (document.body.classList.contains('dark-mode')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+    });
+
+    // Auto sliding review scroll
+    const slider = document.getElementById('reviewSlider');
+    let scrollAmount = 0;
+    setInterval(() => {
+        if (slider) {
+            scrollAmount += 1;
+            if (scrollAmount >= slider.scrollWidth - slider.clientWidth) scrollAmount = 0;
+            slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+        }
+    }, 4000);
 </script>
 </body>
-  </html>
+</html>
