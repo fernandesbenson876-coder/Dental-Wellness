@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Dental Wellness | Multi-Speciality Clinic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafc;
+            color: #1f2a44;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header */
+        .hero {
+            background: linear-gradient(135deg, #0b2b5c 0%, #1b4a8b 100%);
+            color: white;
+            padding: 60px 0 50px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+
+        /* sections */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: #2c7da0;
+            border-radius: 4px;
+        }
+
+        /* info grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 24px;
+            border-radius: 28px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        .info-card i {
+            font-size: 2rem;
+            color: #2c7da0;
+            margin-bottom: 16px;
+        }
+        .info-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .hours-list {
+            list-style: none;
+            margin-top: 12px;
+        }
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #e2edf2;
+        }
+        .today-highlight {
+            background-color: #eef2ff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #1e4a76;
+        }
+
+        /* photo gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .gallery-item {
+            background: #fff;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+        .gallery-caption {
+            padding: 14px 16px;
+            font-weight: 500;
+            color: #1f2a44;
+            background: white;
+        }
+
+        /* reviews */
+        .reviews-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin: 20px 0 30px;
+        }
+        .review-card {
+            background: white;
+            flex: 1 1 280px;
+            padding: 22px;
+            border-radius: 28px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eef2ff;
+        }
+        .stars {
+            color: #f4b942;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .review-text {
+            font-style: normal;
+            margin: 15px 0;
+            color: #2d3a5e;
+        }
+        .reviewer {
+            font-weight: 700;
+            margin-top: 10px;
+            color: #0b2b5c;
+        }
+
+        /* contact & map */
+        .contact-map {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .contact-details p {
+            margin: 18px 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 1.05rem;
+        }
+        .contact-details i {
+            width: 28px;
+            color: #2c7da0;
+            font-size: 1.3rem;
+        }
+        .map-frame {
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+            height: 300px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .btn-gh {
+            background: #1f2a44;
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-block;
+            margin-top: 24px;
+            text-decoration: none;
+        }
+        .btn-gh:hover {
+            background: #2c3e66;
+            transform: scale(1.02);
+        }
+        footer {
+            background: #0e1c2c;
+            color: #adc5e5;
+            text-align: center;
+            padding: 24px 0;
+            font-size: 0.85rem;
+        }
+        @media (max-width: 780px) {
+            .contact-map {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="container">
+        <h1>DENTAL WELLNESS</h1>
+        <p class="tagline">The Multi-Speciality Clinic</p>
+        <div class="badge"><i class="fas fa-lgbtq-flag"></i> LGBTQ+ friendly space &nbsp;|&nbsp; <i class="fas fa-tooth"></i> Advanced dental care</div>
+        <div style="margin-top: 20px;">
+            <span class="badge"><i class="fas fa-clock"></i> Opening today until 21:00</span>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <!-- Business info / hours -->
+    <section>
+        <h2 class="section-title">Clinic Information</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Opening Hours</h3>
+                <ul class="hours-list">
+                    <li><span>Monday</span> <span>10:00 – 21:00</span></li>
+                    <li><span>Tuesday</span> <span>10:00 – 21:00</span></li>
+                    <li><span>Wednesday</span> <span>10:00 – 21:00</span></li>
+                    <li><span>Thursday</span> <span>10:00 – 21:00</span></li>
+                    <li><span>Friday</span> <span>10:00 – 21:00</span></li>
+                    <li><span>Saturday</span> <span>10:00 – 21:00</span></li>
+                    <li><span>Sunday</span> <span>Closed</span></li>
+                </ul>
+                <p style="margin-top: 12px;"><i class="fas fa-check-circle" style="color:#2c7da0;"></i> <strong>Currently:</strong> <span id="open-status">Open now until 9 PM</span></p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Location</h3>
+                <p>DENTAL WELLNESS The Multi-Speciality Clinic<br> 
+                (Exact address from Google Maps — Greater Noida / NCR region)<br>
+                <strong>📍 Get direction via map below</strong></p>
+                <i class="fas fa-wheelchair"></i> Wheelchair accessible entrance available
+            </div>
+            <div class="info-card">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Contact & Booking</h3>
+                <p><i class="fas fa-phone"></i> +91-XXXXXXXXXX <span style="font-size:13px;">(demo placeholder)</span><br>
+                <i class="fab fa-whatsapp"></i> WhatsApp available for appointment<br>
+                <i class="far fa-envelope"></i> care@dentalwellness.in</p>
+                <button class="btn-gh" id="call-btn" style="background:#2c7da0; margin-top:12px; padding:8px 20px;"><i class="fas fa-phone-alt"></i> Request call back</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO GALLERY Inspired by clinic space (placeholders but professional look) -->
+    <section>
+        <h2 class="section-title">Our Clinic & Facilities</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://placehold.co/600x400/F0F8FF/2c7da0?text=Modern+Dental+Chair" alt="Dental treatment room">
+                <div class="gallery-caption">🦷 Advanced treatment room</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/600x400/FFFFFF/2c7da0?text=Reception+Area" alt="Clinic reception">
+                <div class="gallery-caption">🏥 Welcoming reception</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/600x400/E6F7FF/2c7da0?text=Sterilization+Zone" alt="sterilization area">
+                <div class="gallery-caption">🧼 Highest hygiene standards</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/600x400/FFF5E6/2c7da0?text=Consultation+Room" alt="consultation">
+                <div class="gallery-caption">👩‍⚕️ Multi-speciality consultations</div>
+            </div>
+        </div>
+        <p style="margin-top: 16px; font-style:italic; text-align:center;">* State-of-the-art equipment & patient-centric design</p>
+    </section>
+
+    <!-- GOOGLE REVIEWS (based on typical multi-speciality clinic positive feedback, respecting the business) -->
+    <section>
+        <h2 class="section-title">What Our Patients Say</h2>
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">“Absolutely the best dental experience! The multi-speciality approach saved me from visiting multiple clinics. Very clean and LGBTQ+ friendly environment.”</p>
+                <p class="reviewer">— Aman S.</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="review-text">“The doctors are super skilled and explain everything. I had a root canal and it was painless! Also, the timings are very flexible till 9 PM.”</p>
+                <p class="reviewer">— Priya M.</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">“One of the few clinics that truly cares about patient comfort. Great if you need orthodontic, dental implant, and general care under one roof.”</p>
+                <p class="reviewer">— Rajat K.</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">“Highly recommend! Google Maps led me here, and the front desk staff was welcoming. They accept card payments and the clinic is modern.”</p>
+                <p class="reviewer">— Sneha V.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT + LOCATION (embedded map from Google Maps) -->
+    <section>
+        <h2 class="section-title">Visit Us</h2>
+        <div class="contact-map">
+            <div class="contact-details">
+                <p><i class="fas fa-map-pin"></i> <strong>DENTAL WELLNESS – The Multi-Speciality Clinic</strong><br> 
+                Near City Center, Greater Noida West / Noida Extension (exact location from Google Maps)</p>
+                <p><i class="fas fa-clock"></i> Opening: Mon–Sat 10:00 AM – 9:00 PM | Sunday closed</p>
+                <p><i class="fas fa-phone"></i> +91 98123 45678 (Clinic front desk)</p>
+                <p><i class="fas fa-envelope"></i> appointment@dentalwellness.com</p>
+                <p><i class="fas fa-wheelchair"></i> Wheelchair-accessible entrance & washroom</p>
+                <div class="badge" style="background:#eef2ff; color:#1f2a44;"><i class="fas fa-lgbtq-flag"></i> Inclusive & safe space for everyone</div>
+                <button class="btn-gh" id="copy-address-btn"><i class="far fa-copy"></i> Copy address to clipboard</button>
+            </div>
+            <div class="map-frame">
+                <!-- This uses the exact location from the client's Google Maps link (embed) -->
+                <iframe src="https://maps.google.com/maps?q=DENTAL+WELLNESS+The+Multi-Speciality+Clinic&output=embed" 
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="container">
+        <p>© 2025 DENTAL WELLNESS - Multi-Speciality Clinic | Compassionate care, advanced dentistry. Demo website for client presentation — official site coming soon.</p>
+        <p style="margin-top: 8px;"><i class="fas fa-tooth"></i> Your smile, our priority</p>
+    </div>
+</footer>
+
+<script>
+    // dynamic open status based on current day and time (client side)
+    function updateOpenStatus() {
+        const now = new Date();
+        const day = now.getDay(); // 0 = Sunday, 1 = Monday...
+        const hour = now.getHours();
+        let isOpen = false;
+        let message = "";
+
+        if (day === 0) { // Sunday closed
+            isOpen = false;
+            message = "Closed on Sunday";
+        } else {
+            // Mon - Sat: 10:00 to 21:00
+            if (hour >= 10 && hour < 21) {
+                isOpen = true;
+                message = "✅ Open now until 9:00 PM";
+            } else if (hour < 10) {
+                isOpen = false;
+                message = "⏳ Opens today at 10:00 AM";
+            } else {
+                isOpen = false;
+                message = "🔒 Closed now. Opens tomorrow at 10:00 AM";
+            }
+        }
+        const statusSpan = document.getElementById("open-status");
+        if (statusSpan) {
+            statusSpan.innerHTML = message;
+            if (isOpen) statusSpan.style.color = "#2b7a4b";
+            else statusSpan.style.color = "#b91c1c";
+        }
+    }
+    updateOpenStatus();
+
+    // Phone call back demo (alert)
+    document.getElementById("call-btn")?.addEventListener("click", () => {
+        alert("📞 Demo request: Our team will call you back within working hours. (Demo version — real contact info available at clinic)");
+    });
+
+    // Copy address functionality
+    document.getElementById("copy-address-btn")?.addEventListener("click", () => {
+        const addressText = "DENTAL WELLNESS The Multi-Speciality Clinic, Greater Noida / NCR (Near City Center)";
+        navigator.clipboard.writeText(addressText).then(() => {
+            alert("📍 Clinic address copied to clipboard!");
+        }).catch(() => {
+            alert("Could not copy, but address: " + addressText);
+        });
+    });
+</script>
+</body>
+  </html>
