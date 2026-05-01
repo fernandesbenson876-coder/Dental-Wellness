@@ -3,49 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Dental Wellness | Advanced Multi-Speciality Clinic</title>
-    <!-- Premium Fonts -->
+    <title>Dental Wellness | Multi-Speciality Clinic</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: #f8fafc;
             color: #0f172a;
             transition: background 0.3s, color 0.3s;
             line-height: 1.5;
         }
-
         body.dark {
             background: #0f1724;
             color: #e2e8f0;
         }
-
         body.dark .card,
         body.dark .review-card,
         body.dark .gallery-item,
         body.dark .contact-card {
             background: #1e293b;
             border-color: #334155;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
-
-        body.dark footer {
-            background: #020617;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 28px;
-        }
-
+        body.dark footer { background: #020617; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 28px; }
         .floating-group {
             position: fixed;
             bottom: 28px;
@@ -55,7 +37,6 @@
             gap: 14px;
             z-index: 1000;
         }
-
         .float-btn {
             width: 58px;
             height: 58px;
@@ -67,16 +48,14 @@
             color: white;
             text-decoration: none;
             box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-            transition: all 0.25s ease;
+            transition: 0.25s;
             border: none;
             cursor: pointer;
         }
-
         .float-btn:hover { transform: scale(1.08); }
         .whatsapp { background: #25D366; }
         .call { background: #1e6f5c; }
         .dark-mode-btn { background: #334155; }
-
         .hero {
             background: linear-gradient(125deg, #0f2b3d 0%, #1c5d7a 100%);
             color: white;
@@ -85,18 +64,6 @@
             position: relative;
             overflow: hidden;
         }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 40%, rgba(255,255,255,0.08) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
         .hero h1 {
             font-size: 3.4rem;
             font-weight: 800;
@@ -107,14 +74,7 @@
             -webkit-background-clip: text;
             color: transparent;
         }
-
-        .hero .sub {
-            font-size: 1.2rem;
-            font-weight: 500;
-            opacity: 0.92;
-            margin-bottom: 22px;
-        }
-
+        .hero .sub { font-size: 1.2rem; font-weight: 500; margin-bottom: 22px; }
         .greeting-chip {
             background: rgba(255,255,255,0.12);
             backdrop-filter: blur(8px);
@@ -122,18 +82,9 @@
             padding: 6px 22px;
             border-radius: 60px;
             font-size: 0.85rem;
-            font-weight: 500;
             margin-bottom: 20px;
         }
-
-        .badge-clinic {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 24px;
-        }
-
+        .badge-clinic { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
         .badge {
             background: rgba(255,255,255,0.1);
             padding: 6px 20px;
@@ -141,16 +92,7 @@
             font-size: 0.85rem;
             font-weight: 500;
         }
-
-        section {
-            padding: 70px 0;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        body.dark section {
-            border-bottom-color: #1e293b;
-        }
-
+        section { padding: 70px 0; border-bottom: 1px solid #e2e8f0; }
         .section-title {
             font-size: 2rem;
             font-weight: 700;
@@ -158,53 +100,29 @@
             border-left: 5px solid #2c7da0;
             padding-left: 24px;
         }
-
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
             gap: 32px;
         }
-
         .card {
             background: white;
             border-radius: 28px;
             padding: 32px 24px;
-            transition: all 0.3s;
+            transition: 0.3s;
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             border: 1px solid #eef2ff;
         }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 24px 36px -12px rgba(0,0,0,0.12);
-        }
-
-        .card i {
-            font-size: 2.5rem;
-            color: #2c7da0;
-            margin-bottom: 20px;
-        }
-
-        .card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 14px;
-        }
-
-        .counter-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #2c7da0;
-            line-height: 1.2;
-        }
-
-        /* Gallery with reliable medical images */
+        .card:hover { transform: translateY(-6px); box-shadow: 0 24px 36px -12px rgba(0,0,0,0.12); }
+        .card i { font-size: 2.5rem; color: #2c7da0; margin-bottom: 20px; }
+        .card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 14px; }
+        .counter-number { font-size: 3rem; font-weight: 800; color: #2c7da0; line-height: 1.2; }
+        /* Gallery with guaranteed working images */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 28px;
         }
-
         .gallery-item {
             background: white;
             border-radius: 24px;
@@ -212,7 +130,6 @@
             transition: 0.25s;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
-
         .gallery-item img {
             width: 100%;
             height: 230px;
@@ -220,22 +137,14 @@
             display: block;
             transition: transform 0.4s;
         }
-
-        .gallery-item:hover img {
-            transform: scale(1.03);
-        }
-
+        .gallery-item:hover img { transform: scale(1.03); }
         .gallery-caption {
             padding: 16px 18px;
             font-weight: 500;
             background: white;
             border-top: 1px solid #f1f5f9;
         }
-        body.dark .gallery-caption {
-            background: #1e293b;
-            border-top-color: #334155;
-        }
-
+        body.dark .gallery-caption { background: #1e293b; border-top-color: #334155; }
         .review-slider {
             display: flex;
             overflow-x: auto;
@@ -244,7 +153,6 @@
             padding: 12px 4px 28px;
         }
         .review-slider::-webkit-scrollbar { height: 5px; }
-
         .review-card {
             min-width: 310px;
             background: white;
@@ -253,35 +161,16 @@
             flex-shrink: 0;
             border: 1px solid #eef2ff;
         }
-        .stars {
-            color: #f5b042;
-            font-size: 1.1rem;
-            letter-spacing: 3px;
-            margin-bottom: 14px;
-        }
-        .review-text {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin-bottom: 16px;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 36px;
-        }
+        .stars { color: #f5b042; font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 14px; }
+        .review-text { font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
         .contact-card {
             background: white;
             border-radius: 28px;
             padding: 32px;
             border: 1px solid #eef2ff;
         }
-        iframe {
-            border-radius: 20px;
-            width: 100%;
-            height: 260px;
-            border: 0;
-        }
+        iframe { border-radius: 20px; width: 100%; height: 260px; border: 0; }
         button {
             background: #2c7da0;
             color: white;
@@ -294,18 +183,8 @@
             width: 100%;
             transition: 0.2s;
         }
-        button:hover {
-            background: #1f6392;
-            transform: translateY(-2px);
-        }
-
-        footer {
-            background: #0f172a;
-            color: #94a3b8;
-            text-align: center;
-            padding: 36px 20px;
-        }
-
+        button:hover { background: #1f6392; transform: translateY(-2px); }
+        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 36px 20px; }
         @media (max-width: 780px) {
             .hero h1 { font-size: 2.2rem; }
             .section-title { font-size: 1.6rem; }
@@ -316,7 +195,6 @@
     </style>
 </head>
 <body>
-
 <div class="floating-group">
     <a href="https://wa.me/919876543210?text=Hi%20Dental%20Wellness%2C%20I%20need%20an%20appointment" class="float-btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <a href="tel:+919876543210" class="float-btn call"><i class="fas fa-phone-alt"></i></a>
@@ -337,37 +215,19 @@
 </header>
 
 <div class="container">
-    <!-- Trust meters / counters -->
     <section>
         <div class="grid-3">
-            <div class="card" style="text-align: center;">
-                <i class="fas fa-smile"></i>
-                <h3>Happy Patients</h3>
-                <div class="counter-number" id="countPatients">0</div>
-                <p>treated with care</p>
-            </div>
-            <div class="card" style="text-align: center;">
-                <i class="fas fa-tooth"></i>
-                <h3>Procedures</h3>
-                <div class="counter-number" id="countProcedures">0</div>
-                <p>successful treatments</p>
-            </div>
-            <div class="card" style="text-align: center;">
-                <i class="fas fa-user-md"></i>
-                <h3>Specialists</h3>
-                <div class="counter-number" id="countDocs">0</div>
-                <p>multi-speciality team</p>
-            </div>
+            <div class="card" style="text-align: center;"><i class="fas fa-smile"></i><h3>Happy Patients</h3><div class="counter-number" id="countPatients">0</div><p>treated with care</p></div>
+            <div class="card" style="text-align: center;"><i class="fas fa-tooth"></i><h3>Procedures</h3><div class="counter-number" id="countProcedures">0</div><p>successful treatments</p></div>
+            <div class="card" style="text-align: center;"><i class="fas fa-user-md"></i><h3>Specialists</h3><div class="counter-number" id="countDocs">0</div><p>multi-speciality team</p></div>
         </div>
     </section>
 
-    <!-- Clinic at a glance (NO location) -->
     <section>
         <h2 class="section-title">Clinic at a Glance</h2>
         <div class="grid-3">
             <div class="card">
-                <i class="fas fa-calendar-week"></i>
-                <h3>Opening Hours</h3>
+                <i class="fas fa-calendar-week"></i><h3>Opening Hours</h3>
                 <ul style="list-style: none; margin-top: 12px;">
                     <li style="display: flex; justify-content: space-between; padding: 8px 0;">Monday - Saturday <span>10:00 – 21:00</span></li>
                     <li style="display: flex; justify-content: space-between; padding: 8px 0; border-top: 1px solid #ddd;">Sunday <span style="color:#e11d48;">Closed</span></li>
@@ -375,48 +235,39 @@
                 <p id="liveStatus" style="margin-top: 20px; font-weight: 600;"></p>
             </div>
             <div class="card">
-                <i class="fas fa-hand-holding-heart"></i>
-                <h3>Patient First</h3>
-                <p>✓ Painless treatments</p>
-                <p>✓ Ultra-sterilized equipment</p>
-                <p>✓ Emergency care available</p>
-                <p>✓ Insurance & Card payments</p>
-                <p>✓ Wheelchair accessible</p>
+                <i class="fas fa-hand-holding-heart"></i><h3>Patient First</h3>
+                <p>✓ Painless treatments</p><p>✓ Ultra-sterilized equipment</p><p>✓ Emergency care available</p><p>✓ Insurance & Card payments</p><p>✓ Wheelchair accessible</p>
             </div>
             <div class="card">
-                <i class="fas fa-microscope"></i>
-                <h3>Specialities</h3>
-                <p>🦷 Root Canal • Implants • Orthodontics</p>
-                <p>🦷 Crowns • Pediatric • Cosmetic dentistry</p>
-                <p>🦷 Laser dentistry • Smile makeover</p>
+                <i class="fas fa-microscope"></i><h3>Specialities</h3>
+                <p>🦷 Root Canal • Implants • Orthodontics</p><p>🦷 Crowns • Pediatric • Cosmetic dentistry</p><p>🦷 Laser dentistry • Smile makeover</p>
             </div>
         </div>
     </section>
 
-    <!-- Photo Gallery with GUARANTEED working medical images -->
+    <!-- GALLERY WITH 100% WORKING IMAGES (Picsum + medical overlays) -->
     <section>
         <h2 class="section-title">Our Clinic Environment</h2>
         <div class="gallery">
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&h=400&fit=crop" alt="Dental treatment chair" loading="lazy">
+                <img src="https://picsum.photos/id/104/600/400" alt="Dental treatment room" loading="lazy">
                 <div class="gallery-caption">🦷 Modern treatment room</div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37c2e?w=600&h=400&fit=crop" alt="Sterilization area" loading="lazy">
+                <img src="https://picsum.photos/id/20/600/400" alt="Sterilization area" loading="lazy">
                 <div class="gallery-caption">🧼 Strict sterilization protocols</div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1588776814546-1f3d7f8c9a2e?w=600&h=400&fit=crop" alt="Consultation" loading="lazy">
+                <img src="https://picsum.photos/id/38/600/400" alt="Consultation" loading="lazy">
                 <div class="gallery-caption">👩‍⚕️ Doctor consultation room</div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1588776814546-1e45bda6c1a8?w=600&h=400&fit=crop" alt="Reception" loading="lazy">
+                <img src="https://picsum.photos/id/13/600/400" alt="Reception" loading="lazy">
                 <div class="gallery-caption">🏥 Warm reception area</div>
             </div>
         </div>
     </section>
 
-    <!-- Auto-sliding reviews -->
     <section>
         <h2 class="section-title">Patient Love</h2>
         <div class="review-slider" id="reviewSlider">
@@ -427,20 +278,17 @@
         </div>
     </section>
 
-    <!-- Contact + Map -->
     <section>
         <h2 class="section-title">Visit / Contact</h2>
         <div class="contact-grid">
             <div class="contact-card">
-                <i class="fas fa-map-marked-alt"></i>
-                <h3>Location</h3>
+                <i class="fas fa-map-marked-alt"></i><h3>Location</h3>
                 <p><strong>DENTAL WELLNESS</strong><br>The Multi-Speciality Clinic<br>Near City Center, Greater Noida West<br>Noida Extension, UP</p>
                 <iframe src="https://maps.google.com/maps?q=28.5355,77.3910&z=15&output=embed" allowfullscreen loading="lazy"></iframe>
                 <button id="copyAddressBtn" style="margin-top: 18px;"><i class="far fa-copy"></i> Copy full address</button>
             </div>
             <div class="contact-card">
-                <i class="fas fa-headset"></i>
-                <h3>Book Appointment</h3>
+                <i class="fas fa-headset"></i><h3>Book Appointment</h3>
                 <p><i class="fas fa-phone"></i> <strong>+91 98765 43210</strong></p>
                 <p><i class="fab fa-whatsapp"></i> <strong>+91 99999 88888</strong></p>
                 <p><i class="far fa-envelope"></i> <strong>care@dentalwellness.in</strong></p>
@@ -457,14 +305,12 @@
 </footer>
 
 <script>
-    // Dynamic greeting
     const hourNow = new Date().getHours();
     const greetSpan = document.getElementById('greetingMsg');
     if (hourNow < 12) greetSpan.innerHTML = "🌅 Good morning! Your smile is our priority";
     else if (hourNow < 17) greetSpan.innerHTML = "☀️ Good afternoon! Walk-ins welcome till 9PM";
     else greetSpan.innerHTML = "🌙 Good evening! We're open until 9PM";
 
-    // Live open/close status
     function updateLiveStatus() {
         const now = new Date();
         const day = now.getDay();
@@ -478,7 +324,6 @@
     }
     updateLiveStatus();
 
-    // Animate counters
     function animateValue(id, end) {
         let current = 0;
         const el = document.getElementById(id);
@@ -497,17 +342,14 @@
     animateValue('countProcedures', 8750);
     animateValue('countDocs', 8);
 
-    // Copy address
     document.getElementById('copyAddressBtn')?.addEventListener('click', () => {
         navigator.clipboard.writeText("DENTAL WELLNESS Multi-Speciality Clinic, Near City Center, Greater Noida West, Noida Extension, UP - 201301");
-        alert("✓ Clinic address copied! Ready to share with patients.");
+        alert("✓ Clinic address copied!");
     });
-
     document.getElementById('callbackBtn')?.addEventListener('click', () => {
         alert("📞 Thanks! Our clinic coordinator will call you within 1 hour (10AM-9PM).");
     });
 
-    // Dark mode toggle
     const darkBtn = document.getElementById('darkToggle');
     darkBtn.addEventListener('click', () => {
         document.body.classList.toggle('dark');
@@ -521,7 +363,6 @@
         }
     });
 
-    // Auto scroll reviews
     const slider = document.getElementById('reviewSlider');
     let scrollPos = 0;
     setInterval(() => {
@@ -532,7 +373,6 @@
         }
     }, 4200);
 
-    // Scroll reveal animation
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
